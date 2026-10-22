@@ -1,0 +1,1 @@
+import{n as e}from"./index-HI8IW7xw.js";import{c as t,d as n,r}from"./bp-BOOnPTKE.js";var i=e();function a(){return(0,i.jsx)(r,{children:e=>(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(t,{label:`Testimonials`,title:`What businesses say after working with us.`}),(0,i.jsx)(`div`,{style:{height:48}}),(0,i.jsx)(n,{head:!1})]})})}export{a as component};

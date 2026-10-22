@@ -1,0 +1,1 @@
+import{n as e}from"./index-HI8IW7xw.js";import{i as t,o as n,r,s as i}from"./bp-BOOnPTKE.js";var a=e();function o(){return(0,a.jsx)(r,{children:e=>(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(i,{book:e}),(0,a.jsx)(n,{}),(0,a.jsx)(t,{book:e})]})})}export{o as component};
