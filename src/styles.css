@@ -1,0 +1,192 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Vedora design system.
+ * Grounded, warm, precise — a trusted advisor's office, not a SaaS dashboard.
+ * Flat colour blocks, sharp corners, editorial serif headings.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-amber: var(--amber);
+  --color-amber-foreground: var(--amber-foreground);
+  --color-terracotta: var(--terracotta);
+  --color-sage: var(--accent);
+  --color-surface: var(--surface);
+  --color-cloud: var(--cloud);
+}
+
+@theme {
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  /* Sharp, considered corners — nothing pill-shaped */
+  --radius: 0.125rem;
+
+  --background: oklch(1 0 0);                     /* Crisp white #FFFFFF — the canvas */
+  --foreground: oklch(0.293 0.000 89.9);          /* Charcoal #2C2C2C */
+  --card: oklch(0.899 0.030 80.7);                /* Warm Sand #E8DCC8 */
+  --card-foreground: oklch(0.293 0.000 89.9);
+  --popover: oklch(0.899 0.030 80.7);
+  --popover-foreground: oklch(0.293 0.000 89.9);
+  --primary: oklch(0.482 0.074 193.7);            /* Deep Teal #1B6B6A */
+  --primary-foreground: oklch(0.960 0.009 78.3);  /* Cloud */
+  --secondary: oklch(0.899 0.030 80.7);           /* Warm Sand — contained bands only */
+  --secondary-foreground: oklch(0.293 0.000 89.9);
+  --muted: oklch(0.960 0.009 78.3);
+  --muted-foreground: oklch(0.495 0.012 238.7);   /* Slate #5C6368 */
+  --accent: oklch(0.656 0.048 154.9);             /* Sage #7A9A84 */
+  --accent-foreground: oklch(0.293 0.000 89.9);
+  --destructive: oklch(0.650 0.100 45.4);         /* Soft Terracotta #C27B5A */
+  --destructive-foreground: oklch(0.960 0.009 78.3);
+  --border: oklch(0.920 0.022 80.7);              /* quiet warm line on white */
+  --input: oklch(0.899 0.030 80.7);
+  --ring: oklch(0.482 0.074 193.7);
+  --amber: oklch(0.708 0.129 69.6);               /* Amber #D4913A */
+  --amber-foreground: oklch(0.293 0.000 89.9);
+  --terracotta: oklch(0.650 0.100 45.4);          /* Soft Terracotta */
+  --cloud: oklch(0.960 0.009 78.3);               /* Cloud #F5F1EB — occasional band only */
+  --surface: oklch(1 0 0);
+}
+
+.dark {
+  --background: oklch(0.293 0.000 89.9);
+  --foreground: oklch(0.960 0.009 78.3);
+  --card: oklch(0.360 0.010 89.9);
+  --card-foreground: oklch(0.960 0.009 78.3);
+  --popover: oklch(0.360 0.010 89.9);
+  --popover-foreground: oklch(0.960 0.009 78.3);
+  --primary: oklch(0.700 0.080 193.7);
+  --primary-foreground: oklch(0.200 0.020 193.7);
+  --secondary: oklch(0.360 0.010 89.9);
+  --secondary-foreground: oklch(0.960 0.009 78.3);
+  --muted: oklch(0.360 0.010 89.9);
+  --muted-foreground: oklch(0.750 0.012 238.7);
+  --accent: oklch(0.700 0.050 154.9);
+  --accent-foreground: oklch(0.200 0.010 89.9);
+  --destructive: oklch(0.700 0.100 45.4);
+  --destructive-foreground: oklch(0.200 0.010 89.9);
+  --border: oklch(1 0 0 / 15%);
+  --input: oklch(1 0 0 / 20%);
+  --ring: oklch(0.700 0.080 193.7);
+  --amber: oklch(0.750 0.120 69.6);
+  --amber-foreground: oklch(0.200 0.010 89.9);
+  --terracotta: oklch(0.700 0.100 45.4);
+  --surface: oklch(0.320 0.008 89.9);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Restrained entrance + scroll-reveal animations */
+@keyframes vedora-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.rise { animation: vedora-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Scroll-reveal: rise, slide in from left / right */
+.reveal, .reveal-left, .reveal-right {
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal { transform: translateY(20px); }
+.reveal-left { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+.reveal.is-visible, .reveal-left.is-visible, .reveal-right.is-visible { opacity: 1; transform: none; }
+
+/* Readiness bars grow from zero when their card scrolls into view */
+.bar-fill {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) var(--bar-delay, 0s);
+}
+.is-visible .bar-fill { transform: scaleX(1); }
+
+/* Quiet hover lift for cards */
+.card-lift { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+.card-lift:hover { transform: translateY(-4px); }
+
+/* How-it-works tiles: title visible, short description reveals on hover */
+.step-desc {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
+  border-top-width: 0;
+  transition: opacity 0.3s ease, max-height 0.35s ease, margin-top 0.35s ease, padding-top 0.35s ease, border-top-width 0.35s ease;
+}
+.step-tile:hover .step-desc,
+.step-tile:focus-within .step-desc {
+  opacity: 1;
+  max-height: 10rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top-width: 1px;
+}
+/* Touch devices have no hover: always show the short descriptions */
+@media (hover: none) {
+  .step-desc {
+    opacity: 1;
+    max-height: 10rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top-width: 1px;
+  }
+}
+
+/* Booking dialog entrance */
+@keyframes vedora-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vedora-pop { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
+.dialog-backdrop { animation: vedora-fade 0.25s ease-out both; }
+.dialog-panel { animation: vedora-pop 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+  .bar-fill { transform: none; transition: none; }
+  .card-lift, .card-lift:hover { transform: none; }
+  .dialog-backdrop, .dialog-panel { animation: none; }
+  .step-tile, .step-tile * { transition: none !important; transform: none !important; }
+  .step-desc { transition: none; }
+}
